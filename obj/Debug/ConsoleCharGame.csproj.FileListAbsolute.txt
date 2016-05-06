@@ -1,0 +1,6 @@
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleCharGame\ConsoleCharGame\bin\Debug\ConsoleCharGame.exe.config
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleCharGame\ConsoleCharGame\bin\Debug\ConsoleCharGame.exe
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleCharGame\ConsoleCharGame\bin\Debug\ConsoleCharGame.pdb
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleCharGame\ConsoleCharGame\obj\Debug\ConsoleCharGame.csprojResolveAssemblyReference.cache
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleCharGame\ConsoleCharGame\obj\Debug\ConsoleCharGame.exe
+c:\users\matt\documents\visual studio 2015\Projects\ConsoleCharGame\ConsoleCharGame\obj\Debug\ConsoleCharGame.pdb
