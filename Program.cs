@@ -17,22 +17,12 @@ namespace ConsoleCharGame
         static public string[,] display = new string[worldWidth, worldHeight];
         static public string[,] map = new string[worldWidth, worldHeight];
 
-        static public string ground = "░";
-        static public string tree = "T";
-        static public string wall = "█";
-
-        //0 = left/right wall, 1 = up/down wall, 2 = upperleft , 3 = upperright, 4 = lowerleft, 5 = lowerright
-        static string[] menuBrdr = {"║", "═", "╔", "╗", "╚", "╝"};
-
-        static string[] canDestroy = { tree, wall };
-
         static int numTree = 100;
         static int fps = 100;
 
         static Player player = new Player(1, 1);
 
         static bool gameOver = false;
-
 
 
         static void Main(string[] args)
@@ -80,10 +70,10 @@ namespace ConsoleCharGame
                         player.DirectPlayer(1);
                         break;
                     case ConsoleKey.E:
-                        player.DestroyObject(canDestroy, "░");
+                        player.DestroyObject(DisplayChar.canDestroy, "░");
                         break;
                     case ConsoleKey.Q:
-                        player.PlaceObject(wall, tree);
+                        player.PlaceObject(DisplayChar.wall, DisplayChar.tree);
                         break;
                     default:
                         break;
@@ -103,7 +93,7 @@ namespace ConsoleCharGame
 
             for (int i = 0; i < numTree; i++)
             {
-                display[rnd.Next(worldWidth), rnd.Next(worldHeight)] = tree;
+                display[rnd.Next(worldWidth), rnd.Next(worldHeight)] = DisplayChar.tree;
             }
         }
         //puts the world into the console window
@@ -144,30 +134,30 @@ namespace ConsoleCharGame
             {
                 for (int x = 0; x < worldWidth; x++)
                 {
-                    display[x, y] = ground;
+                    display[x, y] = DisplayChar.ground;
                 }
                 CreateTrees();
                 //CreateMenuBoarder();
             }
         }
 
-       /* static void CreateMenuBoarder()
-        {
-            for (int y = 0; y < worldHeight; y++)
-            {
-                for (int x = worldWidth + 1; x <= worldWidth + menuWidth; x++)
-                {
-                    if (y == 0)
-                    {
-                        if (x == worldWidth + 1)
-                            display[x, y] = menuBrdr[2];
-                        if (x > worldWidth + 1 && x < worldWidth + menuWidth - 5)
-                            display[x, y] = menuBrdr[1];
-                        //if (x == worldWidth + menuWidth)
-                        //menu[x, y] = menuBrdr[3];
-                    }
-                }
-            }
-        }*/
+        /* static void CreateMenuBoarder()
+         {
+             for (int y = 0; y < worldHeight; y++)
+             {
+                 for (int x = worldWidth + 1; x <= worldWidth + menuWidth; x++)
+                 {
+                     if (y == 0)
+                     {
+                         if (x == worldWidth + 1)
+                             display[x, y] = DisplayChar.menuBrdr[2];
+                         if (x > worldWidth + 1 && x < worldWidth + menuWidth - 5)
+                             display[x, y] = DisplayChar.menuBrdr[1];
+                         //if (x == worldWidth + menuWidth)
+                         //menu[x, y] = DisplayChar.menuBrdr[3];
+                     }
+                 }
+             }
+         }*/
     }
 }

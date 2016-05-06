@@ -61,7 +61,7 @@ namespace ConsoleCharGame
             newX = (newX + worldWidth) % worldWidth;
             newY = (newY + worldHeight) % worldHeight;
 
-            if (Program.display[newX, newY] == Program.ground)
+            if (Program.display[newX, newY] == DisplayChar.ground)
             {
                 x = newX;
                 y = newY;
@@ -122,10 +122,10 @@ namespace ConsoleCharGame
                                 Program.display[x, y + 1] = replacement;
                                 break;
                         }
-                        if (obj == Program.tree)
+                        if (obj == DisplayChar.tree)
                             inv.ModInv("wood", 1);
                         Console.WriteLine(inv.wood);
-                        if (obj == Program.wall)
+                        if (obj == DisplayChar.wall)
                             inv.ModInv("wood", 1);
                     }
                 }
@@ -173,7 +173,7 @@ namespace ConsoleCharGame
 
                 }
             }
-            if (replacement == Program.wall && inv.wood > 0)
+            if (replacement == DisplayChar.wall && inv.wood > 0)
                 inv.ModInv("wood", -1);
             Console.WriteLine(inv.wood);
         }
