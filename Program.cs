@@ -27,7 +27,7 @@ namespace ConsoleCharGame
         static string[] canDestroy = { tree, wall };
 
         static int numTree = 100;
-        static int fps = 300;
+        static int fps = 100;
 
         static Player player = new Player(1, 1);
 
@@ -41,7 +41,7 @@ namespace ConsoleCharGame
             CreateGameWorld();
 
             Console.CursorVisible = false;
-            Console.SetWindowSize(worldWidth, worldHeight + 1);
+            Console.SetWindowSize(worldWidth, worldHeight + 2);
 
             while (!gameOver)
             {

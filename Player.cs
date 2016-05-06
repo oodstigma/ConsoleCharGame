@@ -38,27 +38,19 @@ namespace ConsoleCharGame
             switch (dir)
             {
                 case Direction.Up:
-                    if (direction[2] == true)
                         newY--;
-                    else
                         DirectPlayer(2);
                     break;
                 case Direction.Down:
-                    if (direction[3] == true)
                         newY++;
-                    else
                         DirectPlayer(3);
                     break;
                 case Direction.Left:
-                    if (direction[0] == true)
                         newX--;
-                    else
                         DirectPlayer(0);
                     break;
                 case Direction.Right:
-                    if (direction[1] == true)
                         newX++;
-                    else
                         DirectPlayer(1);
                     break;
             }
@@ -88,10 +80,11 @@ namespace ConsoleCharGame
             string down = "";
 
                 left = Program.display[x - 1, y];
-            if (x < Program.worldWidth)
+            if (x + 1< Program.worldWidth)
                 right = Program.display[x + 1, y];
+            if (y > 0)
                 up = Program.display[x, y - 1];
-            if (y < Program.worldHeight)
+            if (y < Program.worldHeight - 1)
                 down = Program.display[x, y + 1];
 
             List<string> objects = new List<string>();
@@ -169,13 +162,13 @@ namespace ConsoleCharGame
                 if (direction[i] && inv.wood > 0 && allAround[i] != limit)
                 {
                     if (i == 0)
-                        Program.display[x - 1, y] = replacement;
+                        Program.display[x, y] = replacement;
                     if (i == 1)
-                        Program.display[x + 1, y] = replacement;
+                        Program.display[x, y] = replacement;
                     if (i == 2)
-                        Program.display[x, y - 1] = replacement;
+                        Program.display[x, y] = replacement;
                     if (i == 3)
-                        Program.display[x, y + 1] = replacement;
+                        Program.display[x, y] = replacement;
 
 
                 }
