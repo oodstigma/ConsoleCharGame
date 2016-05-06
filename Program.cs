@@ -140,24 +140,5 @@ namespace ConsoleCharGame
                 //CreateMenuBoarder();
             }
         }
-
-        /* static void CreateMenuBoarder()
-         {
-             for (int y = 0; y < worldHeight; y++)
-             {
-                 for (int x = worldWidth + 1; x <= worldWidth + menuWidth; x++)
-                 {
-                     if (y == 0)
-                     {
-                         if (x == worldWidth + 1)
-                             display[x, y] = DisplayChar.menuBrdr[2];
-                         if (x > worldWidth + 1 && x < worldWidth + menuWidth - 5)
-                             display[x, y] = DisplayChar.menuBrdr[1];
-                         //if (x == worldWidth + menuWidth)
-                         //menu[x, y] = DisplayChar.menuBrdr[3];
-                     }
-                 }
-             }
-         }*/
     }
 }

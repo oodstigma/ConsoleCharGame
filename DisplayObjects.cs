@@ -15,6 +15,7 @@ namespace ConsoleCharGame
         //0 = left/right wall, 1 = up/down wall, 2 = upperleft , 3 = upperright, 4 = lowerleft, 5 = lowerright
         static public string[] menuBrdr = { "║", "═", "╔", "╗", "╚", "╝" };
 
+        //represents all objects that can be destroyed
         static public string[] canDestroy = { tree, wall };
     }
 }

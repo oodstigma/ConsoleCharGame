@@ -13,7 +13,7 @@ namespace ConsoleCharGame
         public int x = 0;
         public int y = 0;
 
-        Inventory inv = new Inventory();
+        public Inventory inv = new Inventory();
 
         public bool[] direction = { true, false, false, false };
 
@@ -124,7 +124,6 @@ namespace ConsoleCharGame
                         }
                         if (obj == DisplayChar.tree)
                             inv.ModInv("wood", 1);
-                        Console.WriteLine(inv.wood);
                         if (obj == DisplayChar.wall)
                             inv.ModInv("wood", 1);
                     }
@@ -175,7 +174,6 @@ namespace ConsoleCharGame
             }
             if (replacement == DisplayChar.wall && inv.wood > 0)
                 inv.ModInv("wood", -1);
-            Console.WriteLine(inv.wood);
         }
     }
 
