@@ -21,6 +21,7 @@ namespace ConsoleCharGame
         static int fps = 100;
 
         static Player player = new Player(1, 1);
+        static DisplayChar duckThis = new DisplayChar();
 
         static bool gameOver = false;
 
@@ -73,7 +74,10 @@ namespace ConsoleCharGame
                         player.DestroyObject(DisplayChar.canDestroy, "░");
                         break;
                     case ConsoleKey.Q:
-                        player.PlaceObject(DisplayChar.wall, DisplayChar.tree);
+                        player.PlaceObject(duckThis.wall, duckThis.ground);
+                        break;
+                    case ConsoleKey.Tab:
+                        player.PlaceObject(duckThis.rockwall, duckThis.ground);
                         break;
                     default:
                         break;
@@ -93,7 +97,17 @@ namespace ConsoleCharGame
 
             for (int i = 0; i < numTree; i++)
             {
-                display[rnd.Next(worldWidth), rnd.Next(worldHeight)] = DisplayChar.tree;
+                display[rnd.Next(worldWidth), rnd.Next(worldHeight)] = duckThis.tree;
+            }
+        }
+        //creates the rocks
+        static void CreateRocks()
+        {
+            Random rnd = new Random(0);
+
+            for (int i = 0; i < numTree; i++)
+            {
+                display[rnd.Next(worldWidth), rnd.Next(worldHeight)] = duckThis.rock;
             }
         }
         //puts the world into the console window
@@ -134,10 +148,10 @@ namespace ConsoleCharGame
             {
                 for (int x = 0; x < worldWidth; x++)
                 {
-                    display[x, y] = DisplayChar.ground;
+                    display[x, y] = duckThis.ground;
                 }
                 CreateTrees();
-                //CreateMenuBoarder();
+                CreateRocks();
             }
         }
     }

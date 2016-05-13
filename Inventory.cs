@@ -8,6 +8,7 @@ namespace ConsoleCharGame
 {
     class Inventory
     {
+
         public int wood = 0;
         public int stone = 0;
 
@@ -22,6 +23,7 @@ namespace ConsoleCharGame
                     stone = stone + value;
                     break;
             }
+            Console.Write("wood: {0}  stone: {1} ", wood, stone);
         }
     }
 }

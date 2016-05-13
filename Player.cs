@@ -14,6 +14,7 @@ namespace ConsoleCharGame
         public int y = 0;
 
         public Inventory inv = new Inventory();
+        DisplayChar fuckConstant = new DisplayChar();
 
         public bool[] direction = { true, false, false, false };
 
@@ -61,7 +62,7 @@ namespace ConsoleCharGame
             newX = (newX + worldWidth) % worldWidth;
             newY = (newY + worldHeight) % worldHeight;
 
-            if (Program.display[newX, newY] == DisplayChar.ground)
+            if (Program.display[newX, newY] == fuckConstant.ground)
             {
                 x = newX;
                 y = newY;
@@ -79,6 +80,7 @@ namespace ConsoleCharGame
             string up = "";
             string down = "";
 
+            if (x >= 1)
                 left = Program.display[x - 1, y];
             if (x + 1< Program.worldWidth)
                 right = Program.display[x + 1, y];
@@ -122,10 +124,14 @@ namespace ConsoleCharGame
                                 Program.display[x, y + 1] = replacement;
                                 break;
                         }
-                        if (obj == DisplayChar.tree)
+                        if (obj == fuckConstant.tree)
                             inv.ModInv("wood", 1);
-                        if (obj == DisplayChar.wall)
+                        if (obj == fuckConstant.wall)
                             inv.ModInv("wood", 1);
+                        if (obj == fuckConstant.rockwall)
+                            inv.ModInv("stone", 1);
+                        if (obj == fuckConstant.rock)
+                            inv.ModInv("stone", 1);    
                     }
                 }
             }
@@ -155,10 +161,16 @@ namespace ConsoleCharGame
         {
 
             string[] allAround = SenseObjAround();
+            bool shortTerm = false;
+
+            if (replacement == fuckConstant.wall && inv.wood > 0)
+            { shortTerm = true;}
+            if (replacement == fuckConstant.rockwall && inv.stone > 0)
+            { shortTerm = false;}
 
             for (int i = 0; i < 4; i++)
             {
-                if (direction[i] && inv.wood > 0 && allAround[i] != limit)
+                if ( (inv.wood > 0 && shortTerm) || (inv.stone > 0 && !shortTerm) )
                 {
                     if (i == 0)
                         Program.display[x, y] = replacement;
@@ -168,12 +180,13 @@ namespace ConsoleCharGame
                         Program.display[x, y] = replacement;
                     if (i == 3)
                         Program.display[x, y] = replacement;
-
-
                 }
             }
-            if (replacement == DisplayChar.wall && inv.wood > 0)
-                inv.ModInv("wood", -1);
+            if (replacement == fuckConstant.rockwall && inv.stone > 0)
+            { inv.ModInv("stone", -1); }
+            if (replacement == fuckConstant.wall && inv.wood > 0)
+            {inv.ModInv("wood", -1); }
+
         }
     }
 
