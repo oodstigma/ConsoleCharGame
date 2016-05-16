@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleCharGame
+namespace DisplayWindow
 {
     class Program
     {
         static public int worldWidth = 65;
         static public int worldHeight = 20;
-
-        static public int menuWidth = 15;
-        static public int menuHeight = 1;
 
         static public string[,] display = new string[worldWidth, worldHeight];
         static public string[,] map = new string[worldWidth, worldHeight];
@@ -70,13 +67,13 @@ namespace ConsoleCharGame
                         player.Move(Direction.Right);
                         player.DirectPlayer(1);
                         break;
-                    case ConsoleKey.E:
+                    case ConsoleKey.K:
                         player.DestroyObject(DisplayChar.canDestroy, "░");
                         break;
-                    case ConsoleKey.Q:
+                    case ConsoleKey.J:
                         player.PlaceObject(duckThis.wall, duckThis.ground);
                         break;
-                    case ConsoleKey.Tab:
+                    case ConsoleKey.L:
                         player.PlaceObject(duckThis.rockwall, duckThis.ground);
                         break;
                     default:

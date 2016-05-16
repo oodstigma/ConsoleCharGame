@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleCharGame
+namespace DisplayWindow
 {
     //player class that stores data need for the player
     class Player
